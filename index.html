@@ -1,269 +1,320 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Favio Alexander Campolo Ruiz | Teledetección & Análisis Espacial</title>
-  <meta name="description" content="Portafolio de Alexander Campolo: Desarrollo de software geográfico, teledetección satelital, ciencia de datos espaciales y sistemas de adquisición.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Bootstrap Icons para la sección de contacto -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  
-  <style>
-    :root {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --border: #30363d;
-      --text: #e6edf3;
-      --text-muted: #8b949e;
-      --accent: #2ea043; /* Cambiado a un verde/tierra más adhoc a geomática, estilo GitHub success */
-      --accent-subtle: rgba(46, 160, 67, 0.15);
-      --accent-hover: #3fb950;
-      --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favio Alexander Campolo Ruiz | Teledetección & Análisis Espacial</title>
+<meta name="description" content="Portafolio de Favio Campolo: desarrollo de software geográfico, teledetección satelital, ciencia de datos espaciales y sistemas de adquisición.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--accent:#2ea043;--accent2:#22d3ee;--glow:rgba(46,160,67,.18);--font:'Plus Jakarta Sans',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+[data-theme="light"]{--bg:#f6f8fa;--card:#fff;--border:#d0d7de;--text:#1f2328;--muted:#59636e;--accent:#1a7f37;--accent2:#0a7ea4;--glow:rgba(26,127,55,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;padding:0 1.5rem;transition:background .3s,color .3s}
+.container{max-width:900px;margin:0 auto;padding:5.5rem 0 5rem}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: var(--bg); color: var(--text); font-family: var(--font-main); line-height: 1.6; padding: 0 1.5rem; }
-    .container { max-width: 900px; margin: 0 auto; padding: 4rem 0 6rem; }
+/* NAV + PROGRESO */
+nav{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:center;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-in{width:100%;max-width:900px;display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem;gap:1rem}
+.nav-logo{font-family:var(--mono);font-weight:600;font-size:.95rem;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:1.2rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--text)}
+#theme{background:var(--card);border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:8px;cursor:pointer;font-size:1rem}
+#bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent2))}
+@media(max-width:640px){.nav-links a{display:none}}
 
-    /* HEADER */
-    header { margin-bottom: 4rem; }
-    .role-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--accent);
-      background: var(--accent-subtle);
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-    }
-    h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; color: #fff; }
-    .bio { color: var(--text-muted); font-size: 1.15rem; max-width: 750px; margin-bottom: 1.5rem; }
-    
-    .links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 6px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: all 0.2s ease; cursor: pointer; }
-    .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
-    .btn-secondary { background: var(--card-bg); color: var(--text); border: 1px solid var(--border); }
-    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+/* HERO */
+header{margin-bottom:4rem;position:relative}
+.badge{display:inline-block;font-family:var(--mono);font-size:.85rem;color:var(--accent);background:var(--glow);padding:.35rem .75rem;border-radius:6px;margin-bottom:1rem;min-height:2rem}
+.badge::after{content:"";display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-size:clamp(2rem,6vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem}
+.bio{color:var(--muted);font-size:1.15rem;max-width:750px;margin-bottom:1.5rem}
+.links{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;border-radius:6px;font-size:.95rem;font-weight:500;text-decoration:none;transition:transform .2s,border-color .2s,background .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04210c;border:0;font-weight:700}
+.btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--accent)}
+#wave{display:block;width:100%;height:260px;margin-top:2rem;-webkit-mask-image:linear-gradient(transparent,#000 25%);mask-image:linear-gradient(transparent,#000 25%)}
 
-    /* SECCIONES & GRID */
-    section { margin-bottom: 4.5rem; }
-    h2 { font-size: 1.5rem; letter-spacing: -0.02em; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-    .skill-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; }
-    .skill-card h3 { font-size: 1rem; margin-bottom: 0.75rem; color: #fff; }
-    
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
-    .tag { font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted); }
+/* SECCIONES */
+section{margin-bottom:4.5rem}
+h2{font-size:1.5rem;letter-spacing:-.02em;border-bottom:1px solid var(--border);padding-bottom:.75rem;margin-bottom:2rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:flex;flex-direction:column}
+.skill-card h3{font-size:1rem;margin-bottom:.75rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.tag{font-family:var(--mono);font-size:.75rem;background:var(--glow);border:1px solid var(--border);padding:.2rem .5rem;border-radius:4px;color:var(--muted)}
+button.tag{cursor:pointer;transition:border-color .2s,color .2s}
+button.tag:hover,button.tag.on{border-color:var(--accent);color:var(--accent)}
 
-    /* PROYECTOS INTERACTIVOS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
-    .project-card {
-      background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-      text-decoration: none; color: inherit; display: flex; flex-direction: column;
-      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover {
-      border-color: var(--accent); transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(46, 160, 67, 0.15);
-    }
-    .project-card:hover .project-link { color: #fff; }
-    .project-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border); background-color: #21262d; }
-    .project-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 1rem; }
-    .project-title { font-size: 1.2rem; color: #fff; font-weight: 700; line-height: 1.3; }
-    .project-link { color: var(--accent); font-size: 0.9rem; font-family: var(--font-mono); white-space: nowrap; transition: color 0.2s ease; }
-    .project-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+/* PIPELINE */
+.pipe{list-style:none;position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem}
+.pipe::before,.pipe::after{content:"";position:absolute;top:13px;left:10%;height:2px;border-radius:2px}
+.pipe::before{width:80%;background:var(--border)}
+.pipe::after{width:80%;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 1.6s ease-out .2s}
+.pipe.in::after{transform:scaleX(1)}
+.pipe li{position:relative;text-align:center;z-index:1}
+.dot{width:28px;height:28px;border-radius:50%;margin:0 auto .6rem;background:var(--bg);border:2px solid var(--border);display:grid;place-items:center;transition:border-color .4s,box-shadow .4s;transition-delay:calc(var(--i)*.3s)}
+.pipe.in .dot{border-color:var(--accent);box-shadow:0 0 14px var(--glow)}
+.pipe b{display:block;font-size:.9rem}
+.pipe small{display:block;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+@media(max-width:640px){.pipe{grid-template-columns:1fr;gap:1.2rem}.pipe::before,.pipe::after{top:14px;bottom:14px;left:13px;width:2px;height:auto}.pipe::after{transform:scaleY(0);transform-origin:top;width:2px}.pipe.in::after{transform:scaleY(1)}.pipe li{display:flex;gap:1rem;text-align:left;align-items:flex-start}.dot{margin:0;flex:none}}
 
-    /* TARJETAS DE CONTACTO */
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-    .contact-card {
-      background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem;
-      display: flex; align-items: center; gap: 1.25rem; text-decoration: none; transition: all 0.3s ease;
-    }
-    .contact-card:hover {
-      border-color: var(--accent); transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(46, 160, 67, 0.15);
-    }
-    .contact-icon {
-      display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;
-      background: var(--accent-subtle); color: var(--accent); font-size: 1.5rem; border-radius: 8px; transition: all 0.3s ease;
-    }
-    .contact-card:hover .contact-icon { background: var(--accent); color: var(--bg); }
-    .contact-info { display: flex; flex-direction: column; }
-    .contact-platform { font-size: 1.1rem; color: #fff; font-weight: 600; }
-    .contact-detail { font-size: 0.9rem; color: var(--text-muted); font-family: var(--font-mono); }
+/* FILTRO + PROYECTOS */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.chip{font-family:var(--mono);font-size:.8rem;background:var(--card);color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:.3rem .9rem;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04210c;border-color:transparent;font-weight:600}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:1.5rem}
+.project-card{--rx:0deg;--ry:0deg;--mx:50%;--my:50%;position:relative;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .15s ease-out,border-color .3s,opacity .35s,filter .35s}
+.project-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(260px circle at var(--mx) var(--my),var(--glow),transparent 70%);opacity:0;transition:opacity .3s}
+.project-card:hover{border-color:var(--accent)}
+.project-card:hover::after{opacity:1}
+.project-card.dim{opacity:.25;filter:grayscale(1)}
+.project-img{position:relative;height:200px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,var(--glow),transparent 60%),repeating-linear-gradient(0deg,transparent 0 14px,var(--border) 14px 15px);display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:.75rem}
+.project-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.project-content{padding:1.5rem;display:flex;flex-direction:column;flex-grow:1}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;gap:1rem}
+.project-title{font-size:1.2rem;font-weight:700;line-height:1.3}
+.project-link{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.project-desc{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;flex-grow:1}
 
-    footer { border-top: 1px solid var(--border); padding-top: 2rem; color: var(--text-muted); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
-  </style>
+/* CONTACTO */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;align-items:center;gap:1.25rem;text-decoration:none;color:inherit;transition:transform .3s,border-color .3s,box-shadow .3s}
+.contact-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 10px 25px var(--glow)}
+.contact-icon{display:grid;place-items:center;width:50px;height:50px;background:var(--glow);color:var(--accent);font-size:1.5rem;border-radius:8px;transition:all .3s}
+.contact-card:hover .contact-icon{background:var(--accent);color:var(--bg)}
+.contact-info{display:flex;flex-direction:column;min-width:0}
+.contact-platform{font-size:1.1rem;font-weight:600}
+.contact-detail{font-size:.85rem;color:var(--muted);font-family:var(--mono);overflow-wrap:anywhere}
+footer{border-top:1px solid var(--border);padding-top:2rem;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+/* REVELADO */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:600px){.projects-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- Hero / Encabezado -->
-    <header>
-      <span class="role-badge">Teledetección &bull; Desarrollo GIS &bull; Data Science</span>
-      <h1>Favio Alexander Campolo Ruiz</h1>
-      <p class="bio">
-        Ingeniero Electrónico orientado al desarrollo de software geográfico y procesamiento de imágenes satelitales. Automatizo pipelines de análisis espacial empleando Python y Machine Learning, integrando bases de datos geoespaciales y entendiendo el flujo de datos desde la adquisición física hasta el despliegue en la nube.
-      </p>
-      <div class="links">
-        <a href="#contacto" class="btn btn-primary">Contactar</a>
-        <a href="https://github.com/favioalexcampolo5-ship-it/PROYECTOS" class="btn btn-secondary" target="_blank">Ver Repositorios</a>
-      </div>
-    </header>
-
-    <!-- Áreas Técnicas -->
-    <section>
-      <h2>Stack Tecnológico Espacial & Software</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Geomática & Teledetección</h3>
-          <div class="tags">
-            <span class="tag">QGIS / ArcGIS</span>
-            <span class="tag">ESA SNAP</span>
-            <span class="tag">Google Earth Engine</span>
-            <span class="tag">Procesamiento SAR / Óptico</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3>Desarrollo & Data Science</h3>
-          <div class="tags">
-            <span class="tag">Python / C++</span>
-            <span class="tag">Pandas / NumPy</span>
-            <span class="tag">Rasterio / GeoPandas</span>
-            <span class="tag">Xarray / SciPy</span>
-            <span class="tag">Scikit-learn</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3>Infraestructura & Adquisición</h3>
-          <div class="tags">
-            <span class="tag">PostgreSQL / PostGIS</span>
-            <span class="tag">Linux (Bash) / AWS</span>
-            <span class="tag">Procesamiento Digital de Señales</span>
-            <span class="tag">Sistemas Embebidos (FPGA / dsPIC)</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos Destacados -->
-    <section>
-      <h2>Proyectos Aplicados</h2>
-      <div class="projects-grid">
-
-        <!-- PROYECTO 1: GIS / TELEDETECCIÓN (En desarrollo) -->
-        <a href="#" class="project-card"> <!-- Cuando tengas el repo, cambia el "#" por el link -->
-          <img src="img/geo-proyecto.jpg" alt="Procesamiento de imágenes satelitales" class="project-img">
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">Herramientas de Análisis Espacial & Teledetección</h3>
-              <span class="project-link">Próximamente &rarr;</span>
-            </div>
-            <p class="project-desc">
-              Scripts automatizados para el filtrado, calibración y procesamiento radiométrico de imágenes satelitales ópticas y radar (SAR), integrando bibliotecas geoespaciales en entorno Python.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Rasterio</span>
-              <span class="tag">GeoPandas</span>
-              <span class="tag">SAR / Óptico</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROYECTO 2: DATA SCIENCE / ML (GCI World) -->
-        <a href="https://github.com/favioalexcampolo5-ship-it/PROYECTOS" target="_blank" class="project-card">
-          <img src="img/ml-proyecto.jpg" alt="Análisis Predictivo de Retención" class="project-img">
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">Análisis Predictivo de Retención (Machine Learning)</h3>
-              <span class="project-link">Ver código &rarr;</span>
-            </div>
-            <p class="project-desc">
-              Proyecto desarrollado para el GCI World (Universidad de Tokio / JICA). Limpieza de bases de datos masivas, análisis exploratorio y evaluación de modelos predictivos usando Scikit-learn para clasificar comportamiento y riesgo de fuga.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Pandas / NumPy</span>
-              <span class="tag">Scikit-learn</span>
-              <span class="tag">Machine Learning</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROYECTO 3: ADQUISICIÓN / HARDWARE ESPACIAL -->
-        <a href="https://github.com/favioalexcampolo5-ship-it/PROYECTOS" target="_blank" class="project-card">
-          <img src="img/apt-proyecto.jpg" alt="Recepción Satelital APT" class="project-img">
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">Estación Terrena APT y Procesamiento DSP Satelital</h3>
-              <span class="project-link">Ver código &rarr;</span>
-            </div>
-            <p class="project-desc">
-              Recepción y decodificación de imágenes satelitales APT. Implementación de DSP en FPGA (VHDL) con receptores I2S de 24 bits y Transformada de Hilbert, apoyado por simulaciones de modulación AM espacial en Python.
-            </p>
-            <div class="tags">
-              <span class="tag">VHDL / FPGA</span>
-              <span class="tag">Python (SciPy)</span>
-              <span class="tag">DSP</span>
-              <span class="tag">Señales Satelitales</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- Sección de Contacto Interactiva -->
-    <section id="contacto">
-      <h2>Conecta Conmigo</h2>
-      <div class="contact-grid">
-        
-        <a href="https://github.com/favioalexcampolo5-ship-it" target="_blank" class="contact-card">
-          <div class="contact-icon"><i class="bi bi-github"></i></div>
-          <div class="contact-info">
-            <span class="contact-platform">GitHub</span>
-            <span class="contact-detail">Audita mi código fuente</span>
-          </div>
-        </a>
-
-        <a href="https://linkedin.com/in/TU_LINKEDIN" target="_blank" class="contact-card">
-          <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
-          <div class="contact-info">
-            <span class="contact-platform">LinkedIn</span>
-            <span class="contact-detail">Favio Alexander Campolo Ruiz</span>
-          </div>
-        </a>
-
-        <a href="mailto:favioalex.campolo5@gmail.com" class="contact-card">
-          <div class="contact-icon"><i class="bi bi-envelope-at-fill"></i></div>
-          <div class="contact-info">
-            <span class="contact-platform">Correo Electrónico</span>
-            <span class="contact-detail">favioalex.campolo5@gmail.com</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <span>Favio Alexander Campolo Ruiz &bull; Portafolio Profesional</span>
-      <span>Desarrollado en HTML/CSS sin dependencias para GitHub Pages</span>
-    </footer>
-
+<nav>
+  <div class="nav-in">
+    <a href="#top" class="nav-logo grad">FC.geo</a>
+    <div class="nav-links">
+      <a href="#stack">Stack</a><a href="#flujo">Flujo</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a>
+      <button id="theme" aria-label="Cambiar tema claro u oscuro"><i class="bi bi-sun-fill"></i></button>
+    </div>
   </div>
+  <div id="bar"></div>
+</nav>
 
+<div class="container" id="top">
+
+  <header>
+    <span class="badge" id="badge" aria-live="off">Teledetección</span>
+    <h1 class="grad">Favio Alexander Campolo Ruiz</h1>
+    <p class="bio">Ingeniero Electrónico orientado al desarrollo de software geográfico y procesamiento de imágenes satelitales. Automatizo pipelines de análisis espacial con Python y Machine Learning, integrando bases de datos geoespaciales y entendiendo el flujo de datos desde la adquisición física hasta el despliegue en la nube.</p>
+    <div class="links">
+      <a href="#contacto" class="btn btn-primary">Contactar</a>
+      <a href="#proyectos" class="btn btn-secondary">Ver proyectos</a>
+    </div>
+    <canvas id="wave" aria-hidden="true"></canvas>
+  </header>
+
+  <section id="stack" class="rv">
+    <h2>Stack Tecnológico Espacial y Software</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><h3>Geomática y Teledetección</h3><div class="tags">
+        <span class="tag">QGIS / ArcGIS</span><span class="tag">ESA SNAP</span><span class="tag">Google Earth Engine</span><span class="tag">Procesamiento SAR / Óptico</span></div></div>
+      <div class="skill-card"><h3>Desarrollo y Data Science</h3><div class="tags">
+        <span class="tag">Python / C++</span><span class="tag">Pandas / NumPy</span><span class="tag">Rasterio / GeoPandas</span><span class="tag">Xarray / SciPy</span><span class="tag">Scikit-learn</span></div></div>
+      <div class="skill-card"><h3>Infraestructura y Adquisición</h3><div class="tags">
+        <span class="tag">PostgreSQL / PostGIS</span><span class="tag">Linux (Bash) / AWS</span><span class="tag">Procesamiento Digital de Señales</span><span class="tag">Sistemas Embebidos (FPGA / dsPIC)</span></div></div>
+    </div>
+  </section>
+
+  <section id="flujo" class="rv">
+    <h2>Del sensor a la nube</h2>
+    <ol class="pipe" id="pipe">
+      <li><div class="dot" style="--i:0"></div><div><b>Adquisición</b><small>FPGA, dsPIC, I2S</small></div></li>
+      <li><div class="dot" style="--i:1"></div><div><b>DSP</b><small>FFT, Hilbert</small></div></li>
+      <li><div class="dot" style="--i:2"></div><div><b>Procesamiento</b><small>Rasterio, GeoPandas</small></div></li>
+      <li><div class="dot" style="--i:3"></div><div><b>Machine Learning</b><small>Scikit-learn</small></div></li>
+      <li><div class="dot" style="--i:4"></div><div><b>Despliegue</b><small>PostGIS, AWS</small></div></li>
+    </ol>
+  </section>
+
+  <section id="proyectos" class="rv">
+    <h2>Proyectos Aplicados</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar proyectos por tecnología">
+      <button class="chip on" data-f="all">Todos</button>
+      <button class="chip" data-f="python">Python</button>
+      <button class="chip" data-f="sar">SAR / Óptico</button>
+      <button class="chip" data-f="ml">Machine Learning</button>
+      <button class="chip" data-f="fpga">FPGA</button>
+      <button class="chip" data-f="dsp">DSP</button>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Para agregar el enlace del repo nuevo: cambia <article> por <a href="URL" target="_blank" class="project-card"> y el "Próximamente" por "Ver código" -->
+      <article class="project-card tilt" data-tags="python sar">
+        <div class="project-img"><span>img/geo-proyecto.jpg</span><img src="img/geo-proyecto.jpg" alt="Procesamiento de imágenes satelitales" onerror="this.remove()"></div>
+        <div class="project-content">
+          <div class="project-header"><h3 class="project-title">Herramientas de Análisis Espacial y Teledetección</h3><span class="project-link">Próximamente</span></div>
+          <p class="project-desc">Scripts automatizados para el filtrado, calibración y procesamiento radiométrico de imágenes satelitales ópticas y radar (SAR), integrando bibliotecas geoespaciales en entorno Python.</p>
+          <div class="tags"><button class="tag" data-f="python">Python</button><span class="tag">Rasterio</span><span class="tag">GeoPandas</span><button class="tag" data-f="sar">SAR / Óptico</button></div>
+        </div>
+      </article>
+
+      <article class="project-card tilt" data-tags="python ml">
+        <div class="project-img"><span>img/ml-proyecto.jpg</span><img src="img/ml-proyecto.jpg" alt="Análisis Predictivo de Retención" onerror="this.remove()"></div>
+        <div class="project-content">
+          <div class="project-header"><h3 class="project-title">Análisis Predictivo de Retención (Machine Learning)</h3><span class="project-link">Próximamente</span></div>
+          <p class="project-desc">Proyecto desarrollado para el GCI World (Universidad de Tokio / JICA). Limpieza de bases de datos masivas, análisis exploratorio y evaluación de modelos predictivos con Scikit-learn para clasificar comportamiento y riesgo de fuga.</p>
+          <div class="tags"><button class="tag" data-f="python">Python</button><span class="tag">Pandas / NumPy</span><span class="tag">Scikit-learn</span><button class="tag" data-f="ml">Machine Learning</button></div>
+        </div>
+      </article>
+
+      <article class="project-card tilt" data-tags="python fpga dsp">
+        <div class="project-img"><span>img/apt-proyecto.jpg</span><img src="img/apt-proyecto.jpg" alt="Recepción Satelital APT" onerror="this.remove()"></div>
+        <div class="project-content">
+          <div class="project-header"><h3 class="project-title">Estación Terrena APT y Procesamiento DSP Satelital</h3><span class="project-link">Próximamente</span></div>
+          <p class="project-desc">Recepción y decodificación de imágenes satelitales APT. Implementación de DSP en FPGA (VHDL) con receptores I2S de 24 bits y Transformada de Hilbert, apoyada por simulaciones de modulación AM en Python.</p>
+          <div class="tags"><button class="tag" data-f="fpga">VHDL / FPGA</button><button class="tag" data-f="python">Python (SciPy)</button><button class="tag" data-f="dsp">DSP</button><span class="tag">Señales Satelitales</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="contacto" class="rv">
+    <h2>Conecta conmigo</h2>
+    <div class="contact-grid">
+      <a href="https://github.com/favioalexcampolo5-ship-it" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-icon"><i class="bi bi-github"></i></div>
+        <div class="contact-info"><span class="contact-platform">GitHub</span><span class="contact-detail">Audita mi código fuente</span></div>
+      </a>
+      <!-- Reemplaza TU_LINKEDIN por tu usuario real -->
+      <a href="https://linkedin.com/in/TU_LINKEDIN" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
+        <div class="contact-info"><span class="contact-platform">LinkedIn</span><span class="contact-detail">Favio Alexander Campolo Ruiz</span></div>
+      </a>
+      <a href="mailto:favioalex.campolo5@gmail.com" class="contact-card">
+        <div class="contact-icon"><i class="bi bi-envelope-at-fill"></i></div>
+        <div class="contact-info"><span class="contact-platform">Correo Electrónico</span><span class="contact-detail">favioalex.campolo5@gmail.com</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Favio Alexander Campolo Ruiz &bull; Portafolio Profesional</span>
+    <span>HTML, CSS y JavaScript puros para GitHub Pages</span>
+  </footer>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Tema */
+const root=document.documentElement,tbtn=$('#theme');
+let saved=null;try{saved=localStorage.getItem('theme')}catch(e){}
+function setTheme(t){root.dataset.theme=t;tbtn.innerHTML=t==='dark'?'<i class="bi bi-sun-fill"></i>':'<i class="bi bi-moon-stars-fill"></i>';try{localStorage.setItem('theme',t)}catch(e){}readColors();if(reduce)draw()}
+tbtn.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+
+/* Barra de progreso + enlace activo */
+const bar=$('#bar'),links=$$('.nav-links a'),secs=['stack','flujo','proyectos','contacto'].map(id=>document.getElementById(id));
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';
+  let cur=-1;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=i});
+  links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* Texto que se escribe */
+const words=['Teledetección','Desarrollo GIS','Procesamiento de señales','Data Science'],badge=$('#badge');
+let wi=0,ci=0,del=false;
+function type(){
+  const w=words[wi];ci+=del?-1:1;badge.textContent=w.slice(0,ci);
+  let d=del?35:70;
+  if(!del&&ci===w.length){del=true;d=1400}
+  else if(del&&ci===0){del=false;wi=(wi+1)%words.length;d=350}
+  setTimeout(type,d);
+}
+if(!reduce)type();
+
+/* Aparición al hacer scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach(el=>io.observe(el));
+const pio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');pio.disconnect()}}),{threshold:.6});
+pio.observe($('#pipe'));
+
+/* Inclinación 3D y brillo */
+$$('.tilt').forEach(c=>{
+  c.addEventListener('pointermove',e=>{
+    if(reduce||e.pointerType==='touch')return;
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    c.style.setProperty('--ry',((x-.5)*8)+'deg');c.style.setProperty('--rx',((.5-y)*8)+'deg');
+    c.style.setProperty('--mx',(x*100)+'%');c.style.setProperty('--my',(y*100)+'%');
+  });
+  c.addEventListener('pointerleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+});
+
+/* Filtro por tecnología */
+const chips=$$('.chip'),cards=$$('.project-card');
+function filter(f){
+  chips.forEach(c=>c.classList.toggle('on',c.dataset.f===f));
+  $$('button.tag').forEach(t=>t.classList.toggle('on',f!=='all'&&t.dataset.f===f));
+  cards.forEach(c=>c.classList.toggle('dim',f!=='all'&&!c.dataset.tags.split(' ').includes(f)));
+}
+chips.forEach(c=>c.onclick=()=>filter(c.dataset.f));
+$$('button.tag').forEach(t=>t.onclick=()=>{
+  const active=$('.chip.on').dataset.f;filter(active===t.dataset.f?'all':t.dataset.f);
+});
+
+/* Canvas: perfiles de terreno con portadora AM que reacciona al mouse */
+const cv=$('#wave'),cx=cv.getContext('2d');
+let W=0,H=0,tx=-999,ty=-999,mx=-999,my=-999,t=0,vis=true,col={};
+function readColors(){const s=getComputedStyle(root);col={bg:s.getPropertyValue('--bg').trim(),a:s.getPropertyValue('--accent').trim(),b:s.getPropertyValue('--accent2').trim()}}
+function size(){const r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+function draw(){
+  cx.clearRect(0,0,W,H);
+  const rows=20,step=6,g=cx.createLinearGradient(0,0,W,0);g.addColorStop(0,col.a);g.addColorStop(1,col.b);
+  for(let r=0;r<rows;r++){
+    const k=r/(rows-1),base=H*.25+k*H*.68,top=new Path2D();
+    for(let x=0;x<=W+step;x+=step){
+      const terr=Math.sin(x*.008+r*.5+t*.3)*.6+Math.sin(x*.021-r*.9)*.4;
+      const am=1+.35*Math.sin(x*.09-t*2.5+r);
+      const dx=x-mx,dy=base-my,bump=Math.exp(-dx*dx/9000)*Math.exp(-dy*dy/40000)*55;
+      const y=base-(terr+1)*13*am*(.4+k*.9)-bump;
+      x?top.lineTo(x,y):top.moveTo(x,y);
+    }
+    const fill=new Path2D(top);fill.lineTo(W+step,H+5);fill.lineTo(0,H+5);fill.closePath();
+    cx.fillStyle=col.bg;cx.fill(fill);
+    cx.globalAlpha=.2+k*.8;cx.strokeStyle=g;cx.lineWidth=1.3;cx.stroke(top);cx.globalAlpha=1;
+  }
+}
+function loop(){if(vis){t+=.016;mx+=(tx-mx)*.15;my+=(ty-my)*.15;draw()}requestAnimationFrame(loop)}
+$('header').addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top});
+$('header').addEventListener('pointerleave',()=>{tx=ty=-999;if(mx<-900){mx=my=-999}});
+new IntersectionObserver(es=>vis=es[0].isIntersecting).observe(cv);
+addEventListener('resize',()=>{size();if(reduce)draw()});
+
+setTheme(saved||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));
+size();readColors();
+if(reduce)draw();else loop();
+</script>
 </body>
 </html>
