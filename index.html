@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexander Campolo | Portafolio de Ingeniería</title>
+  <meta name="description" content="Portafolio de Alexander Campolo: Sistemas embebidos, diseño digital con FPGA, hardware y análisis geoespacial.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-subtle: rgba(88, 166, 255, 0.15);
+      --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .role-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    section {
+      margin-bottom: 4.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
+
+    /* NUEVOS ESTILOS PARA TARJETAS INTERACTIVAS CON IMAGEN */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden; /* Evita que la imagen se salga de los bordes redondeados */
+      text-decoration: none; /* Quita el subrayado de los links */
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover .project-link {
+      color: #fff;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover; /* Mantiene la proporción de la imagen cortando el sobrante */
+      border-bottom: 1px solid var(--border);
+      background-color: #21262d; /* Fondo por si la imagen tarda en cargar */
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .project-link {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1; /* Empuja las etiquetas hacia abajo */
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Adaptabilidad para móviles */
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* SECCIÓN DE CONTACTO INTERACTIVA */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(88, 166, 255, 0.15); /* Brillo azul sutil */
+    }
+
+    .contact-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-subtle);
+      color: var(--accent);
+      font-size: 1.5rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-platform {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .contact-detail {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Hero / Encabezado -->
+    <header>
+      <span class="role-badge">Ingeniería Electrónica &bull; Sistemas Embebidos &bull; FPGA</span>
+      <h1>Alexander Campolo</h1>
+      <p class="bio">
+        Especializado en desarrollo de software a bajo nivel (bare-metal C, VHDL), diseño de hardware digital y procesamiento de datos geoespaciales.
+      </p>
+      <div class="links">
+        <a href="https://github.com/TU_USUARIO" class="btn btn-primary" target="_blank">Ver GitHub</a>
+        <a href="https://linkedin.com/in/TU_LINKEDIN" class="btn btn-secondary" target="_blank">LinkedIn</a>
+        <a href="mailto:tu-correo@ejemplo.com" class="btn btn-secondary">Contacto</a>
+      </div>
+    </header>
+
+    <!-- Áreas Técnicas -->
+    <section>
+      <h2>Stack Técnico</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Hardware & Embebidos</h3>
+          <div class="tags">
+            <span class="tag">VHDL</span>
+            <span class="tag">Bare-metal C</span>
+            <span class="tag">FPGAs (Cyclone 10 LP)</span>
+            <span class="tag">dsPIC / STM32</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Diseño de Circuitos</h3>
+          <div class="tags">
+            <span class="tag">Altium Designer</span>
+            <span class="tag">Ruteo de PCB</span>
+            <span class="tag">Acondicionamiento Analógico</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Datos & Teledetección</h3>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">QGIS / SNAP</span>
+            <span class="tag">Rasterio / GeoPandas</span>
+            <span class="tag">Linux (Ubuntu)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos Destacados (Ahora interactivos con imagen) -->
+    <section>
+      <h2>Proyectos Destacados</h2>
+      <div class="projects-grid">
+
+        <!-- PROYECTO 1 -->
+        <a href="https://github.com/TU_USUARIO/REPO_FPGA" target="_blank" class="project-card">
+          <!-- Coloca la ruta de tu imagen en el atributo src -->
+          <img src="img/fpga-proyecto.jpg" alt="Vista del proyecto FPGA" class="project-img">
+          
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">Procesamiento Multiespectral en FPGA</h3>
+              <span class="project-link">Ver código &rarr;</span>
+            </div>
+            <p class="project-desc">
+              Arquitectura en VHDL para captura de audio satelital. Implementa recepción I2S desde ADC PCM1808 y filtrado FIR con transformada de Hilbert.
+            </p>
+            <div class="tags">
+              <span class="tag">VHDL</span>
+              <span class="tag">FPGA</span>
+              <span class="tag">DSP</span>
+              <span class="tag">I2S</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- PROYECTO 2 -->
+        <a href="https://github.com/TU_USUARIO/REPO_DSPIC" target="_blank" class="project-card">
+          <img src="img/dspic-proyecto.jpg" alt="Placa dsPIC y HMI" class="project-img">
+          
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">Sistema Industrial IoT para Motores DC</h3>
+              <span class="project-link">Ver código &rarr;</span>
+            </div>
+            <p class="project-desc">
+              Telemetría industrial con dsPIC30F, aislamiento óptico PC817 para inmunidad a ruido e interfaz HMI en C++/Qt para visualización en PC.
+            </p>
+            <div class="tags">
+              <span class="tag">C</span>
+              <span class="tag">dsPIC</span>
+              <span class="tag">Qt / C++</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- PROYECTO 3 -->
+        <a href="https://github.com/TU_USUARIO/REPO_PYTHON" target="_blank" class="project-card">
+          <img src="img/geo-proyecto.jpg" alt="Procesamiento de imágenes satelitales" class="project-img">
+          
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">Análisis Espacial & Teledetección</h3>
+              <span class="project-link">Ver código &rarr;</span>
+            </div>
+            <p class="project-desc">
+              Scripts automatizados para calibración radiométrica de imágenes satelitales ópticas y radar (SAR) usando bibliotecas geoespaciales.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Rasterio</span>
+              <span class="tag">QGIS</span>
+              <span class="tag">SAR</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+    <!-- Sección de Contacto Interactiva -->
+    <section>
+      <h2>Conecta Conmigo</h2>
+      <div class="contact-grid">
+        
+        <!-- Tarjeta GitHub -->
+        <a href="https://github.com/TU_USUARIO" target="_blank" class="contact-card">
+          <div class="contact-icon">
+            <i class="bi bi-github"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-platform">GitHub</span>
+            <span class="contact-detail">@tu_usuario</span>
+          </div>
+        </a>
+
+        <!-- Tarjeta LinkedIn -->
+        <a href="https://linkedin.com/in/TU_LINKEDIN" target="_blank" class="contact-card">
+          <div class="contact-icon">
+            <i class="bi bi-linkedin"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-platform">LinkedIn</span>
+            <span class="contact-detail">Alexander Campolo</span>
+          </div>
+        </a>
+
+        <!-- Tarjeta Correo -->
+        <a href="mailto:tu-correo@ejemplo.com" class="contact-card">
+          <div class="contact-icon">
+            <i class="bi bi-envelope-at-fill"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-platform">Correo Electrónico</span>
+            <span class="contact-detail">Contáctame directo</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <span>Alexander Campolo &bull; Portafolio Técnico</span>
+      <span>Alojado en GitHub Pages</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>
