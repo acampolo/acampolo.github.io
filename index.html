@@ -85,7 +85,10 @@ button.tag:hover,button.tag.on{border-color:var(--accent);color:var(--accent)}
 .project-content{padding:1.5rem;display:flex;flex-direction:column;flex-grow:1}
 .project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;gap:1rem}
 .project-title{font-size:1.2rem;font-weight:700;line-height:1.3}
-.project-link{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.project-link{font-family:var(--mono);font-size:.8rem;color:var(--accent);white-space:nowrap;text-decoration:none;transition:color .2s}
+a.project-link::before{content:"";position:absolute;inset:0;z-index:1}
+a.project-link:hover{color:var(--accent2)}
+.project-card .tag{position:relative;z-index:2}
 .project-desc{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;flex-grow:1}
 
 /* CONTACTO */
@@ -164,14 +167,14 @@ footer{border-top:1px solid var(--border);padding-top:2rem;color:var(--muted);fo
       <button class="chip" data-f="ml">Machine Learning</button>
       <button class="chip" data-f="fpga">FPGA</button>
       <button class="chip" data-f="dsp">DSP</button>
+      <button class="chip" data-f="embedded">Embebidos</button>
     </div>
     <div class="projects-grid">
 
-      <!-- Para agregar el enlace del repo nuevo: cambia <article> por <a href="URL" target="_blank" class="project-card"> y el "Próximamente" por "Ver código" -->
       <article class="project-card tilt" data-tags="python sar">
         <div class="project-img"><span>img/geo-proyecto.jpg</span><img src="img/geo-proyecto.jpg" alt="Procesamiento de imágenes satelitales" onerror="this.remove()"></div>
         <div class="project-content">
-          <div class="project-header"><h3 class="project-title">Herramientas de Análisis Espacial y Teledetección</h3><span class="project-link">Próximamente</span></div>
+          <div class="project-header"><h3 class="project-title">Herramientas de Análisis Espacial y Teledetección</h3><a class="project-link" href="https://github.com/acampolo/GEODATA" target="_blank" rel="noopener">Ver código &rarr;</a></div>
           <p class="project-desc">Scripts automatizados para el filtrado, calibración y procesamiento radiométrico de imágenes satelitales ópticas y radar (SAR), integrando bibliotecas geoespaciales en entorno Python.</p>
           <div class="tags"><button class="tag" data-f="python">Python</button><span class="tag">Rasterio</span><span class="tag">GeoPandas</span><button class="tag" data-f="sar">SAR / Óptico</button></div>
         </div>
@@ -180,7 +183,7 @@ footer{border-top:1px solid var(--border);padding-top:2rem;color:var(--muted);fo
       <article class="project-card tilt" data-tags="python ml">
         <div class="project-img"><span>img/ml-proyecto.jpg</span><img src="img/ml-proyecto.jpg" alt="Análisis Predictivo de Retención" onerror="this.remove()"></div>
         <div class="project-content">
-          <div class="project-header"><h3 class="project-title">Análisis Predictivo de Retención (Machine Learning)</h3><span class="project-link">Próximamente</span></div>
+          <div class="project-header"><h3 class="project-title">Análisis Predictivo de Retención (Machine Learning)</h3><a class="project-link" href="https://github.com/acampolo/Proyecto_Retencion_Clientes_ML" target="_blank" rel="noopener">Ver código &rarr;</a></div>
           <p class="project-desc">Proyecto desarrollado para el GCI World (Universidad de Tokio / JICA). Limpieza de bases de datos masivas, análisis exploratorio y evaluación de modelos predictivos con Scikit-learn para clasificar comportamiento y riesgo de fuga.</p>
           <div class="tags"><button class="tag" data-f="python">Python</button><span class="tag">Pandas / NumPy</span><span class="tag">Scikit-learn</span><button class="tag" data-f="ml">Machine Learning</button></div>
         </div>
@@ -189,9 +192,18 @@ footer{border-top:1px solid var(--border);padding-top:2rem;color:var(--muted);fo
       <article class="project-card tilt" data-tags="python fpga dsp">
         <div class="project-img"><span>img/apt-proyecto.jpg</span><img src="img/apt-proyecto.jpg" alt="Recepción Satelital APT" onerror="this.remove()"></div>
         <div class="project-content">
-          <div class="project-header"><h3 class="project-title">Estación Terrena APT y Procesamiento DSP Satelital</h3><span class="project-link">Próximamente</span></div>
+          <div class="project-header"><h3 class="project-title">Estación Terrena APT y Procesamiento DSP Satelital</h3><a class="project-link" href="https://github.com/acampolo/Estaci-n-Terrena-APT-y-Procesamiento-DSP-Satelital-VHDL-FPGA-Intel-Cyclone-10-LP-y-Python" target="_blank" rel="noopener">Ver código &rarr;</a></div>
           <p class="project-desc">Recepción y decodificación de imágenes satelitales APT. Implementación de DSP en FPGA (VHDL) con receptores I2S de 24 bits y Transformada de Hilbert, apoyada por simulaciones de modulación AM en Python.</p>
           <div class="tags"><button class="tag" data-f="fpga">VHDL / FPGA</button><button class="tag" data-f="python">Python (SciPy)</button><button class="tag" data-f="dsp">DSP</button><span class="tag">Señales Satelitales</span></div>
+        </div>
+      </article>
+
+      <article class="project-card tilt" data-tags="python dsp embedded">
+        <div class="project-img"><span>img/mante-proyecto.jpg</span><img src="img/mante-proyecto.jpg" alt="Mantenimiento predictivo industrial con dsPIC30F" onerror="this.remove()"></div>
+        <div class="project-content">
+          <div class="project-header"><h3 class="project-title">Mantenimiento Predictivo Industrial con dsPIC30F</h3><a class="project-link" href="https://github.com/acampolo/mantenimiento-predictivo-industrial-dspic30f4013-pyqt" target="_blank" rel="noopener">Ver código &rarr;</a></div>
+          <p class="project-desc">Sistema de mantenimiento predictivo para motores DC. Firmware en dsPIC30F4013 con adquisición y análisis espectral (FFT), comunicación Modbus RTU e interfaz HMI en PyQt para monitoreo.</p>
+          <div class="tags"><button class="tag" data-f="embedded">Sistemas Embebidos</button><span class="tag">dsPIC30F</span><span class="tag">Modbus RTU</span><button class="tag" data-f="dsp">DSP</button><button class="tag" data-f="python">Python (PyQt)</button></div>
         </div>
       </article>
 
@@ -205,7 +217,6 @@ footer{border-top:1px solid var(--border);padding-top:2rem;color:var(--muted);fo
         <div class="contact-icon"><i class="bi bi-github"></i></div>
         <div class="contact-info"><span class="contact-platform">GitHub</span><span class="contact-detail">Audita mi código fuente</span></div>
       </a>
-      <!-- Reemplaza TU_LINKEDIN por tu usuario real -->
       <a href="https://www.linkedin.com/in/favio-alexander-campolo-ruiz-6257581b0" target="_blank" rel="noopener" class="contact-card">
         <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
         <div class="contact-info"><span class="contact-platform">LinkedIn</span><span class="contact-detail">Favio Alexander Campolo Ruiz</span></div>
